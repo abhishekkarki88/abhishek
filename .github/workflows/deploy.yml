@@ -1,25 +1,25 @@
-name: Static Deployment
+name: Static-site Deployment
 
 on:
-    push:
-        branches:
-            - main
+  push:
+    branches:
+     - main
 jobs:
-    deploy:
-        runs-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v2
-      
-            - name: Deploy code to EC2
-              uses: appleboy/ssh-action@master
-              with:
-                host: ${{ secrets.EC2_HOST }}
-                username: ${{ secrets.EC2_USERNAME }}
-                key: ${{ secrets.SSH_PRIVATE_KEY }}
-                port: ${{ secrets.EC2_PORT }}
-                script: |
-                    cd /home/ubuntu/abhishek
-                    git pull origin main
-                    echo "It's Working"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Deploy code to EC2
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.EC2_PORT }}
+          script:  |
+            cd /home/ubuntu/abhishek
+            git pull origin main
+            echo "Deployment Succesfull!!"   
