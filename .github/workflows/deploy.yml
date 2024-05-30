@@ -20,6 +20,6 @@ jobs:
                 key: ${{ secrets.SSH_PRIVATE_KEY }}
                 port: ${{ secrets.EC2_PORT }}
                 script: |
-                    cd /home/ubuntu/cloud
+                    cd /home/ubuntu/abhishek
                     git pull origin main
                     echo "It's Working"
