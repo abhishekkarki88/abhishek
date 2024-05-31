@@ -22,4 +22,4 @@ jobs:
           script:  |
             cd /home/ubuntu/abhishek
             git pull origin main
-            echo "Deployment Succesfull!!"   
+            echo "Deployment Succesfull!!"
