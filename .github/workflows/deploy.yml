@@ -23,3 +23,9 @@ jobs:
             cd /home/ubuntu/abhishek
             git pull origin main
             echo "Deployment Succesfull!!"
+            npm install
+            npm run build
+            sudo rm -rf /home/ubuntu/var/www/html/*
+            sudo mv /home/ubuntu/abhishek/build/* /var/www/html/
+            systemctl apache2 restart
+            echo "Deployment Succesfull!!"   
