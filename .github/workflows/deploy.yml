@@ -20,6 +20,11 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.EC2_PORT }}
           script:  |
+            sudo apt-get install -y apache2
+            sudo apt-get install -y npm
+            sudo apt-get install -y node
+            sudo apt-get update 
+            sudo apt-get upgrade
             cd /home/ubuntu/abhishek
             git pull origin main
             echo "Deployment Succesfull!!"
